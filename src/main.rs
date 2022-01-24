@@ -13,22 +13,21 @@ fn randomNumber() -> i32 {
 }
 
 fn main() {
-    println!("Please enter a number");
+    println!("Please enter a number between 0 and 5");
     let mut input = String::new();
     io::stdin().read_line(&mut input).expect("Failed to read line");
-    let number: i32 = input.trim().parse().expect("Please enter a number");
+    let number: i32 = input.trim().parse().expect("Please enter a number (floats do not count)");
 
     if isNumberToLowOrHigh(number) {
         println!("Please enter a number between 0 and 5");
         return;
-    }
+    };
 
-    #[allow(non_snake_case)]
-    let randomNumber = randomNumber();
+    let random_number = randomNumber();
 
-    if number == randomNumber {
+    if number == random_number {
         println!("You guessed the correct number!");
     } else {
-        println!("You guessed the wrong number, the number was {}", randomNumber);
-    }
+        println!("You guessed the wrong number, the number was {}", random_number);
+    };
 }
